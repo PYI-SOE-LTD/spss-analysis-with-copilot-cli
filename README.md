@@ -11,7 +11,9 @@ This repository demonstrates how to use **GitHub Copilot CLI** to read, explore,
 | File | Description |
 |---|---|
 | `Employee data.sav` | SPSS dataset — 474 employees, 10 variables |
-| `salary_table.py` | Python script: Beginning Salary by Gender & Education |
+| `export_to_excel.py` | Python script: exports full analysis to formatted Excel |
+| `salary_table.py` | Python script: Beginning Salary by Gender & Education (terminal output) |
+| `Employee_Data_Analysis.xlsx` | Excel report — 3 sheets: Variable Info, Summary Stats, Salary Table |
 | `How_to_Analyze_SAV_with_GitHub_Copilot_CLI.md` | Full step-by-step guide |
 
 ---
@@ -21,10 +23,24 @@ This repository demonstrates how to use **GitHub Copilot CLI** to read, explore,
 ### 1. Install requirements
 
 ```bash
-pip install pyreadstat pandas
+pip install pyreadstat pandas openpyxl
 ```
 
-### 2. Run the salary analysis
+### 2. Generate the Excel report
+
+```bash
+python export_to_excel.py
+```
+
+This creates `Employee_Data_Analysis.xlsx` with **3 formatted sheets**:
+
+| Sheet | Contents |
+|---|---|
+| 📋 Variable Info | All 10 variables — name, label, type, value labels, missing count |
+| 📊 Summary Statistics | Mean, Std Dev, Min, Median, Max + gender breakdown |
+| 💰 Salary by Gender & Education | Full pivot table with colour formatting |
+
+### 3. Or run the terminal salary table only
 
 ```bash
 python salary_table.py
@@ -110,6 +126,7 @@ The `Employee data.sav` is a classic HR dataset commonly used for salary and emp
 | Python 3.x | Runtime |
 | `pyreadstat` | Read `.sav` SPSS files |
 | `pandas` | Data analysis & pivot tables |
+| `openpyxl` | Write formatted Excel reports |
 | GitHub Copilot CLI | AI-powered terminal assistant |
 
 ---
